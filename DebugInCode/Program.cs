@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
+using DebugInCode.Extensions;
 
 namespace DebugInCode
 {
@@ -31,6 +32,8 @@ namespace DebugInCode
             var persons = Enumerable.Range(0, 1000)
                 .Select(i => new Person { Id = i, Relatives = Enumerable.Range(0, 1000).Select(x => new Person { Id = x }).ToList() })
                 .ToList();
+
+            var personRelativeIds = persons.ElementAt(0).GetRelativeIds();
 
         }
     }
