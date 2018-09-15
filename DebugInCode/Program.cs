@@ -33,7 +33,10 @@ namespace DebugInCode
                 .Select(i => new Person { Id = i, Relatives = Enumerable.Range(0, 1000).Select(x => new Person { Id = x }).ToList() })
                 .ToList();
 
-            var personRelativeIds = persons.ElementAt(0).GetRelativeIds();
+            var person = persons.ElementAt(0);
+            //person = null;
+            var personRelativeIds = person.GetRelativeIds();
+            var ids = PersonExtensions.GetRelativeIds(person);
 
         }
     }
