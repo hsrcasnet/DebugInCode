@@ -8,13 +8,16 @@ namespace DebugInCode
     {
         static void Main(string[] args)
         {
-            //if (!Debugger.IsAttached)
-            //{
-            //    Debugger.Launch();
-            //}
+            // DEMO: Attach debugger if not already attached
+            if (!Debugger.IsAttached)
+            {
+                Debugger.Launch();
+            }
 
-            //Debugger.Break();
+            // DEMO: Break in code
+            Debugger.Break();
 
+            // DEMO: Check if debugger is attached
             if (Debugger.IsAttached)
             {
                 Console.WriteLine("Debugger is attached!");
