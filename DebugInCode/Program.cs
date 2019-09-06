@@ -28,7 +28,20 @@ namespace DebugInCode
                 Console.WriteLine("Debugger is not attached");
             }
 
-            // DEMO: DebuggerVisible
+            // DEMO: Compile for DEBUG build
+#if DEBUG
+            Console.WriteLine("Is DEBUG build");
+#else
+             Console.WriteLine("Is not DEBUG build");
+#endif
+            
+            // DEMO: Call method conditionally
+            // This can be useful for performance measuring, logging, tracing, diagnostics
+            // which is not needed in release builds.
+            CallMeIfDebug();
+
+            // DEMO: DebuggerDisplay
+            // Optimizes the debug message of objects
             var persons = Enumerable.Range(0, 1000)
                 .Select(i => new Person { Id = i, Relatives = Enumerable.Range(0, 1000).Select(x => new Person { Id = x }).ToList() })
                 .ToList();
@@ -39,6 +52,12 @@ namespace DebugInCode
             var ids = PersonExtensions.GetRelativeIds(person);
 
             Console.ReadKey();
+        }
+
+        [Conditional("DEBUG")]
+        private static void CallMeIfDebug()
+        {
+            Console.WriteLine("I'm only called if DEBUG directive is set");
         }
     }
 }
