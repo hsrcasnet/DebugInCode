@@ -38,6 +38,7 @@ namespace DebugInCode
             var personRelativeIds = person.GetRelativeIds();
             var ids = PersonExtensions.GetRelativeIds(person);
 
+            Console.ReadKey();
         }
     }
 }
