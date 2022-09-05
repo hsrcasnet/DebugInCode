@@ -4,10 +4,10 @@ using System.Linq;
 
 namespace DebugInCode.Extensions
 {
-    internal static class PersonExtensions
+    public static class PersonExtensions
     {
         [DebuggerStepThrough]
-        internal static IEnumerable<int> GetRelativeIds(this Person person)
+        public static IEnumerable<int> GetRelativeIds(this Person person)
         {
             return person.Relatives.Select(p => p.Id);
         }

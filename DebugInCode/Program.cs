@@ -5,9 +5,9 @@ using DebugInCode.Extensions;
 
 namespace DebugInCode
 {
-    partial class Program
+    public partial class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             // DEMO: Attach debugger if not already attached
             if (!Debugger.IsAttached)
@@ -34,7 +34,7 @@ namespace DebugInCode
 #else
              Console.WriteLine("Is not DEBUG build");
 #endif
-            
+
             // DEMO: Call method conditionally
             // This can be useful for performance measuring, logging, tracing, diagnostics
             // which is not needed in release builds.
